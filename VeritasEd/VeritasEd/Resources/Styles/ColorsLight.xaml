@@ -1,0 +1,65 @@
+﻿<ResourceDictionary
+    x:Class="VeritasEd.Resources.Styles.ColorsLight"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+	<!-- Main Colors -->
+	<Color x:Key="BackgroundColor">#F5F7FA</Color>
+	<!-- Soft off-white -->
+	<Color x:Key="PrimaryColor">#FFFFFF</Color>
+	<!-- Card/Panel background -->
+	<Color x:Key="CardColor">#FFFFFF</Color>
+	<Color x:Key="HeaderBackgroundColor">#E3F2FD</Color>
+	<!-- Light blue for headers -->
+	<Color x:Key="AccentColor">#1976D2</Color>
+	<!-- Vibrant blue accent -->
+	<Color x:Key="ButtonColor">#1976D2</Color>
+	<Color x:Key="ButtonTextColor">#FFFFFF</Color>
+	<Color x:Key="EntryBackgroundColor">#F0F2F5</Color>
+	<!-- Slightly gray for entries -->
+	<Color x:Key="EntryTextColor">#23263A</Color>
+
+	<!-- Text Colors -->
+	<Color x:Key="TextPrimaryColor">#23263A</Color>
+	<!-- Deep blue-gray for main text -->
+	<Color x:Key="TextSecondaryColor">#4A4E69</Color>
+	<!-- Muted for secondary text -->
+
+	<!-- Grade Colors -->
+	<Color x:Key="GradeGoodColor">#43A047</Color>
+	<Color x:Key="GradeAverageColor">#FBC02D</Color>
+	<Color x:Key="GradeBadColor">#E53935</Color>
+
+	<!-- Additional Palette (for flexibility) -->
+	<Color x:Key="Primary">#1976D2</Color>
+	<Color x:Key="PrimaryDark">#1565C0</Color>
+	<Color x:Key="PrimaryDarkText">#242424</Color>
+	<Color x:Key="Secondary">#90CAF9</Color>
+	<Color x:Key="SecondaryDarkText">#1976D2</Color>
+	<Color x:Key="Tertiary">#64B5F6</Color>
+	<Color x:Key="White">#FFFFFF</Color>
+	<Color x:Key="Black">#000000</Color>
+	<Color x:Key="Gray100">#F5F5F5</Color>
+	<Color x:Key="Gray200">#EEEEEE</Color>
+	<Color x:Key="Gray300">#E0E0E0</Color>
+	<Color x:Key="Gray400">#BDBDBD</Color>
+	<Color x:Key="Gray500">#9E9E9E</Color>
+	<Color x:Key="Gray600">#757575</Color>
+	<Color x:Key="Gray900">#212121</Color>
+	<Color x:Key="Gray950">#141414</Color>
+
+	<!-- Brushes (optional, for advanced styling) -->
+	<SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
+	<SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
+	<SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
+	<SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
+	<SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
+	<SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}"/>
+	<SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}"/>
+	<SolidColorBrush x:Key="Gray300Brush" Color="{StaticResource Gray300}"/>
+	<SolidColorBrush x:Key="Gray400Brush" Color="{StaticResource Gray400}"/>
+	<SolidColorBrush x:Key="Gray500Brush" Color="{StaticResource Gray500}"/>
+	<SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
+	<SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
+	<SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
+</ResourceDictionary>

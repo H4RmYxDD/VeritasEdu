@@ -2,37 +2,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VeritasEd.Views.StudentDashboardPage"
              Title="Student Dashboard"
-             BackgroundColor="{StaticResource BackgroundColor}">
+             BackgroundColor="{DynamicResource BackgroundColor}">
     <ScrollView>
         <VerticalStackLayout Padding="24,36" Spacing="28">
-            <Frame BackgroundColor="{StaticResource PrimaryColor}" CornerRadius="16" Padding="18" HasShadow="True">
+            <Button x:Name="ThemeToggleButton"
+Text="Switch Theme"
+Clicked="OnThemeToggleClicked"
+BackgroundColor="{DynamicResource ButtonColor}"
+TextColor="{DynamicResource ButtonTextColor}"
+CornerRadius="8"
+HeightRequest="36"
+HorizontalOptions="End"
+Margin="0,0,0,10"/>
+            <Frame BackgroundColor="{DynamicResource PrimaryColor}" CornerRadius="16" Padding="18" HasShadow="True">
                 <Label x:Name="WelcomeLabel"
                        FontSize="28"
                        FontAttributes="Bold"
-                       TextColor="{StaticResource TextPrimaryColor}"
+                       TextColor="{DynamicResource TextPrimaryColor}"
                        HorizontalOptions="Center" />
             </Frame>
             <Label Text="Your Grades"
                    FontAttributes="Bold"
                    FontSize="20"
-                   TextColor="{StaticResource AccentColor}"
+                   TextColor="{DynamicResource AccentColor}"
                    Margin="0,10,0,0"/>
-            <Frame BackgroundColor="{StaticResource CardColor}" CornerRadius="14" Padding="0" HasShadow="True">
+            <Frame BackgroundColor="{DynamicResource CardColor}" CornerRadius="14" Padding="0" HasShadow="True">
                 <CollectionView x:Name="GradesCollectionView"
                                 EmptyView="No grades available."
                                 Margin="0"
                                 SelectionMode="None">
                     <CollectionView.Header>
-                        <Grid Padding="12,8" BackgroundColor="{StaticResource HeaderBackgroundColor}" ColumnDefinitions="2*,2*,1*">
-                            <Label Text="Subject" FontAttributes="Bold" TextColor="{StaticResource AccentColor}" Grid.Column="0"/>
-                            <Label Text="Grade" FontAttributes="Bold" TextColor="{StaticResource AccentColor}" Grid.Column="1"/>
+                        <Grid Padding="12,8" BackgroundColor="{DynamicResource HeaderBackgroundColor}" ColumnDefinitions="2*,2*,1*">
+                            <Label Text="Subject" FontAttributes="Bold" TextColor="{DynamicResource AccentColor}" Grid.Column="0"/>
+                            <Label Text="Grade" FontAttributes="Bold" TextColor="{DynamicResource AccentColor}" Grid.Column="1"/>
                         </Grid>
                     </CollectionView.Header>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid Padding="10,6" ColumnDefinitions="2*,2*,1*" RowSpacing="0">
-                                <Label Text="{Binding Subject}" Grid.Column="0" FontSize="16" VerticalOptions="Center" TextColor="{StaticResource TextPrimaryColor}"/>
-                                <Label Text="{Binding Value}" Grid.Column="1" FontSize="16" VerticalOptions="Center" TextColor="{StaticResource TextSecondaryColor}"/>
+                                <Label Text="{Binding Subject}" Grid.Column="0" FontSize="16" VerticalOptions="Center" TextColor="{DynamicResource TextPrimaryColor}"/>
+                                <Label Text="{Binding Value}" Grid.Column="1" FontSize="16" VerticalOptions="Center" TextColor="{DynamicResource TextSecondaryColor}"/>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

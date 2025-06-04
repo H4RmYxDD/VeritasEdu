@@ -2,43 +2,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VeritasEd.Views.LoginPage"
              Title="Login"
-             BackgroundColor="{StaticResource BackgroundColor}">
+             BackgroundColor="{DynamicResource BackgroundColor}">
     <ScrollView>
         <VerticalStackLayout Padding="24,60" Spacing="32">
-            <Frame BackgroundColor="{StaticResource PrimaryColor}" CornerRadius="16" Padding="18" HasShadow="True">
+            <Button x:Name="ThemeToggleButton"
+Text="Switch Theme"
+Clicked="OnThemeToggleClicked"
+BackgroundColor="{DynamicResource ButtonColor}"
+TextColor="{DynamicResource ButtonTextColor}"
+CornerRadius="8"
+HeightRequest="36"
+HorizontalOptions="End"
+Margin="0,0,0,10"/>
+            <Frame BackgroundColor="{DynamicResource PrimaryColor}" CornerRadius="16" Padding="18" HasShadow="True">
                 <Label Text="Welcome to VeritasEd"
                        FontSize="28"
                        FontAttributes="Bold"
-                       TextColor="{StaticResource TextPrimaryColor}"
+                       TextColor="{DynamicResource TextPrimaryColor}"
                        HorizontalOptions="Center" />
             </Frame>
-            <Frame BackgroundColor="{StaticResource CardColor}" CornerRadius="14" Padding="24" HasShadow="True">
+            <Frame BackgroundColor="{DynamicResource CardColor}" CornerRadius="14" Padding="24" HasShadow="True">
                 <VerticalStackLayout Spacing="18">
-                    <Label Text="Login" FontAttributes="Bold" FontSize="22" TextColor="{StaticResource AccentColor}" HorizontalOptions="Center"/>
+                    <Label Text="Login" FontAttributes="Bold" FontSize="22" TextColor="{DynamicResource AccentColor}" HorizontalOptions="Center"/>
                     <Entry x:Name="UsernameEntry"
                            Placeholder="Username"
-                           BackgroundColor="{StaticResource EntryBackgroundColor}"
-                           TextColor="{StaticResource EntryTextColor}"
+                           BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                           TextColor="{DynamicResource EntryTextColor}"
                            HeightRequest="44"
                            FontSize="16"/>
                     <Entry x:Name="PasswordEntry"
                            Placeholder="Password"
                            IsPassword="True"
-                           BackgroundColor="{StaticResource EntryBackgroundColor}"
-                           TextColor="{StaticResource EntryTextColor}"
+                           BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                           TextColor="{DynamicResource EntryTextColor}"
                            HeightRequest="44"
                            FontSize="16"/>
                     <Button Text="Login"
                             Clicked="OnLoginClicked"
-                            BackgroundColor="{StaticResource ButtonColor}"
-                            TextColor="{StaticResource ButtonTextColor}"
+                            BackgroundColor="{DynamicResource ButtonColor}"
+                            TextColor="{DynamicResource ButtonTextColor}"
                             FontAttributes="Bold"
                             CornerRadius="8"
                             HeightRequest="44"/>
                     <Button Text="Register"
                             Clicked="OnRegisterClicked"
-                            BackgroundColor="{StaticResource CardColor}"
-                            TextColor="{StaticResource AccentColor}"
+                            BackgroundColor="{DynamicResource CardColor}"
+                            TextColor="{DynamicResource AccentColor}"
                             FontAttributes="Bold"
                             CornerRadius="8"
                             HeightRequest="44"/>

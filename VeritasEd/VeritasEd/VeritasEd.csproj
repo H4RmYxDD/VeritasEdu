@@ -80,6 +80,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Resources\Styles\ColorsDark.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\ColorsLight.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

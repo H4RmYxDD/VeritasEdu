@@ -2,54 +2,63 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VeritasEd.Views.TeacherDashboardPage"
              Title="Teacher Dashboard"
-             BackgroundColor="{StaticResource BackgroundColor}">
+             BackgroundColor="{DynamicResource BackgroundColor}">
     <ScrollView>
         <VerticalStackLayout Spacing="14">
-            <Frame BackgroundColor="{StaticResource PrimaryColor}" CornerRadius="16" Padding="18" HasShadow="True">
+            <Button x:Name="ThemeToggleButton"
+        Text="Switch Theme"
+        Clicked="OnThemeToggleClicked"
+        BackgroundColor="{DynamicResource ButtonColor}"
+        TextColor="{DynamicResource ButtonTextColor}"
+        CornerRadius="8"
+        HeightRequest="36"
+        HorizontalOptions="End"
+        Margin="0,0,0,10"/>
+            <Frame BackgroundColor="{DynamicResource PrimaryColor}" CornerRadius="16" Padding="18" HasShadow="True">
                 <Label x:Name="WelcomeLabel"
            FontSize="28"
            FontAttributes="Bold"
-           TextColor="{StaticResource TextPrimaryColor}"
+           TextColor="{DynamicResource TextPrimaryColor}"
            HorizontalOptions="Center" />
             </Frame>
-            <Frame BackgroundColor="{StaticResource CardColor}" CornerRadius="14" Padding="20" HasShadow="True">
+            <Frame BackgroundColor="{DynamicResource CardColor}" CornerRadius="14" Padding="20" HasShadow="True">
                 <VerticalStackLayout Spacing="14">
                     
                     <Label Text="Student"
                            FontAttributes="Bold"
                            FontSize="16"
-                           TextColor="{StaticResource AccentColor}" />
-                    <Frame BackgroundColor="{StaticResource EntryBackgroundColor}" CornerRadius="10" Padding="4" HasShadow="False">
+                           TextColor="{DynamicResource AccentColor}" />
+                    <Frame BackgroundColor="{DynamicResource EntryBackgroundColor}" CornerRadius="20" Padding="2" HasShadow="False">
                         <Picker x:Name="StudentPicker"
         Title="Select Student"
         ItemDisplayBinding="{Binding Username}"
-        BackgroundColor="{StaticResource EntryBackgroundColor}"
-        TextColor="{StaticResource EntryTextColor}"
-        TitleColor="{StaticResource TextSecondaryColor}"
-        FontSize="20"
-        HeightRequest="54"
+        BackgroundColor="{DynamicResource EntryBackgroundColor}"
+        TextColor="{DynamicResource EntryTextColor}"
+        TitleColor="{DynamicResource TextSecondaryColor}"
+        FontSize="14"
+        HeightRequest="70"
         HorizontalOptions="FillAndExpand"
         VerticalOptions="Center"
         Margin="0"/>
                     </Frame>
                     <Entry x:Name="SubjectEntry"
                            Placeholder="Subject"
-                           BackgroundColor="{StaticResource EntryBackgroundColor}"
-                           TextColor="{StaticResource EntryTextColor}"
+                           BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                           TextColor="{DynamicResource EntryTextColor}"
                            Margin="0,4"
                            HeightRequest="44"
                            FontSize="16"/>
                     <Entry x:Name="GradeValueEntry"
                            Placeholder="Grade"
-                           BackgroundColor="{StaticResource EntryBackgroundColor}"
-                           TextColor="{StaticResource EntryTextColor}"
+                           BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                           TextColor="{DynamicResource EntryTextColor}"
                            Margin="0,4"
                            HeightRequest="44"
                            FontSize="16"/>
                     <Button Text="Save Grade"
                             Clicked="OnAddGradeClicked"
-                            BackgroundColor="{StaticResource ButtonColor}"
-                            TextColor="{StaticResource ButtonTextColor}"
+                            BackgroundColor="{DynamicResource ButtonColor}"
+                            TextColor="{DynamicResource ButtonTextColor}"
                             FontAttributes="Bold"
                             CornerRadius="8"
                             HeightRequest="44"/>
@@ -58,18 +67,18 @@
             <Label Text="All Grades"
                    FontAttributes="Bold"
                    FontSize="20"
-                   TextColor="{StaticResource AccentColor}"
+                   TextColor="{DynamicResource AccentColor}"
                    Margin="0,10,0,0"/>
-            <Frame BackgroundColor="{StaticResource CardColor}" CornerRadius="14" Padding="0" HasShadow="True">
+            <Frame BackgroundColor="{DynamicResource CardColor}" CornerRadius="14" Padding="0" HasShadow="True">
                 <CollectionView x:Name="GradesCollectionView"
                                 EmptyView="No grades available."
                                 Margin="0"
                                 SelectionMode="None">
                     <CollectionView.Header>
-                        <Grid Padding="12,8" BackgroundColor="{StaticResource HeaderBackgroundColor}" ColumnDefinitions="1.2*,2*,1*,Auto,Auto">
-                            <Label Text="Student ID" FontAttributes="Bold" TextColor="{StaticResource AccentColor}" Grid.Column="0"/>
-                            <Label Text="Subject" FontAttributes="Bold" TextColor="{StaticResource AccentColor}" Grid.Column="1"/>
-                            <Label Text="Grade" FontAttributes="Bold" TextColor="{StaticResource AccentColor}" Grid.Column="2"/>
+                        <Grid Padding="12,8" BackgroundColor="{DynamicResource HeaderBackgroundColor}" ColumnDefinitions="1.2*,2*,1*,Auto,Auto">
+                            <Label Text="Student ID" FontAttributes="Bold" TextColor="{DynamicResource AccentColor}" Grid.Column="0"/>
+                            <Label Text="Subject" FontAttributes="Bold" TextColor="{DynamicResource AccentColor}" Grid.Column="1"/>
+                            <Label Text="Grade" FontAttributes="Bold" TextColor="{DynamicResource AccentColor}" Grid.Column="2"/>
                             <Label Text="" Grid.Column="3"/>
                             <Label Text="" Grid.Column="4"/>
                         </Grid>
@@ -77,9 +86,9 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid Padding="10,6" ColumnDefinitions="1.2*,2*,1*,Auto,Auto" RowSpacing="0">
-                                <Label Text="{Binding Username}" Grid.Column="0" FontSize="16" VerticalOptions="Center" TextColor="{StaticResource TextPrimaryColor}"/>
-                                <Label Text="{Binding Subject}" Grid.Column="1" FontSize="16" VerticalOptions="Center" TextColor="{StaticResource TextPrimaryColor}"/>
-                                <Label Text="{Binding Value}" Grid.Column="2" FontSize="16" VerticalOptions="Center" TextColor="{StaticResource TextSecondaryColor}"/>
+                                <Label Text="{Binding Username}" Grid.Column="0" FontSize="16" VerticalOptions="Center" TextColor="{DynamicResource TextPrimaryColor}"/>
+                                <Label Text="{Binding Subject}" Grid.Column="1" FontSize="16" VerticalOptions="Center" TextColor="{ DynamicResource TextPrimaryColor}"/>
+                                <Label Text="{Binding Value}" Grid.Column="2" FontSize="16" VerticalOptions="Center" TextColor="{DynamicResource TextSecondaryColor}"/>
                                 <Button Text="Edit"
                                         Grid.Column="3"
                                         Clicked="OnEditGradeClicked"

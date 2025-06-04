@@ -1,4 +1,6 @@
+﻿using System.Linq;
 using VeritasEd.Api.Models;
+using VeritasEd.Resources.Styles;
 using VeritasEd.Services;
 
 namespace VeritasEd.Views;
@@ -10,6 +12,32 @@ public partial class TeacherDashboardPage : ContentPage
     private List<Models.User> _students = new();
 
     public Models.User SelectedStudent { get; set; }
+    private bool _isDark = true;
+
+    private void OnThemeToggleClicked(object sender, EventArgs e)
+    {
+        ToggleTheme();
+    }
+    private void ToggleTheme()
+    {
+        var dicts = Application.Current.Resources.MergedDictionaries;
+
+        
+        var existingTheme = dicts.FirstOrDefault(d => d.GetType().Name.Contains("Colors"));
+        if (existingTheme != null)
+            dicts.Remove(existingTheme);
+
+        
+        ResourceDictionary newTheme;
+        if (_isDark)
+            newTheme = new ColorsLight();
+        else
+            newTheme = new ColorsDark();
+
+        dicts.Add(newTheme);
+        _isDark = !_isDark;
+    }
+
 
     public TeacherDashboardPage(Models.User user)
     {
