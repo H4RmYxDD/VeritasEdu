@@ -28,11 +28,10 @@ public partial class LoginPage : ContentPage
                 Password = apiUser.Password,
                 Role = apiUser.Role
             };
-
             if (user.Role == "Teacher")
-                await Navigation.PushAsync(new TeacherDashboardPage(user));
+                await Navigation.PushAsync(new TeacherTabbedPage(user));
             else
-                await Navigation.PushAsync(new StudentDashboardPage(user));
+                await Navigation.PushAsync(new StudentTabbedPage(user));
         }
         else
         {
@@ -68,4 +67,5 @@ public partial class LoginPage : ContentPage
         dicts.Add(newTheme);
         _isDark = !_isDark;
     }
+
 }

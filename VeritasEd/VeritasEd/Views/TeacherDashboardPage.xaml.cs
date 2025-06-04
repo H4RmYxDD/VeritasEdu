@@ -13,10 +13,23 @@ public partial class TeacherDashboardPage : ContentPage
 
     public Models.User SelectedStudent { get; set; }
     private bool _isDark = true;
+    public TeacherDashboardPage()
+    {
+        InitializeComponent();
+        BindingContext = this;
+        _user = new Models.User { Username = "Teacher" };
+        InitAsync();
+        WelcomeLabel.Text = $"Welcome, {_user.Username} (Teacher)";
+    }
 
     private void OnThemeToggleClicked(object sender, EventArgs e)
     {
         ToggleTheme();
+    }
+    private async void OnLogoutClicked(object sender, EventArgs e)
+    {
+
+        Application.Current.MainPage = new NavigationPage(new LoginPage());
     }
     private void ToggleTheme()
     {

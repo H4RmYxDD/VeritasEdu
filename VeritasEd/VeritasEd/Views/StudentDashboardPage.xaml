@@ -5,6 +5,15 @@
              BackgroundColor="{DynamicResource BackgroundColor}">
     <ScrollView>
         <VerticalStackLayout Padding="24,36" Spacing="28">
+            <Button Text="Logout"
+        Clicked="OnLogoutClicked"
+        BackgroundColor="{StaticResource ButtonColor}"
+        TextColor="{StaticResource ButtonTextColor}"
+        FontAttributes="Bold"
+        CornerRadius="8"
+        HeightRequest="36"
+        HorizontalOptions="End"
+        Margin="0,0,0,10"/>
             <Button x:Name="ThemeToggleButton"
 Text="Switch Theme"
 Clicked="OnThemeToggleClicked"

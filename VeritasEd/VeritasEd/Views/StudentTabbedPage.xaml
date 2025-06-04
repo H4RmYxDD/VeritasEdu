@@ -1,0 +1,9 @@
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:views="clr-namespace:VeritasEd.Views"
+            x:Class="VeritasEd.Views.StudentTabbedPage"
+            BarBackgroundColor="{StaticResource PrimaryColor}"
+            BarTextColor="{StaticResource TextPrimaryColor}">
+    <views:StudentDashboardPage x:Name="DashboardTab" Title="Dashboard" IconImageSource="dashboard.png"/>
+    <views:ProfilePage x:Name="ProfileTab" Title="Profile" IconImageSource="person.png"/>
+</TabbedPage>
