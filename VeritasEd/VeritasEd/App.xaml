@@ -1,0 +1,28 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:VeritasEd"
+             x:Class="VeritasEd.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Color x:Key="BackgroundColor">#181A20</Color>
+            <Color x:Key="PrimaryColor">#23263A</Color>
+            <Color x:Key="CardColor">#23263A</Color>
+            <Color x:Key="HeaderBackgroundColor">#23263A</Color>
+            <Color x:Key="AccentColor">#00BFAE</Color>
+            <Color x:Key="TextPrimaryColor">#FFFFFF</Color>
+            <Color x:Key="TextSecondaryColor">#B0B3C6</Color>
+            <Color x:Key="ButtonColor">#00BFAE</Color>
+            <Color x:Key="ButtonTextColor">#181A20</Color>
+            <Color x:Key="EntryBackgroundColor">#23263A</Color>
+            <Color x:Key="EntryTextColor">#FFFFFF</Color>
+            <Color x:Key="GradeGoodColor">#43A047</Color>
+            <Color x:Key="GradeAverageColor">#FBC02D</Color>
+            <Color x:Key="GradeBadColor">#E53935</Color>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

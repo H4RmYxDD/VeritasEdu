@@ -1,0 +1,43 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VeritasEd.Views.StudentDashboardPage"
+             Title="Student Dashboard"
+             BackgroundColor="{StaticResource BackgroundColor}">
+    <ScrollView>
+        <VerticalStackLayout Padding="24,36" Spacing="28">
+            <Frame BackgroundColor="{StaticResource PrimaryColor}" CornerRadius="16" Padding="18" HasShadow="True">
+                <Label x:Name="WelcomeLabel"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource TextPrimaryColor}"
+                       HorizontalOptions="Center" />
+            </Frame>
+            <Label Text="Your Grades"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   TextColor="{StaticResource AccentColor}"
+                   Margin="0,10,0,0"/>
+            <Frame BackgroundColor="{StaticResource CardColor}" CornerRadius="14" Padding="0" HasShadow="True">
+                <CollectionView x:Name="GradesCollectionView"
+                                EmptyView="No grades available."
+                                Margin="0"
+                                SelectionMode="None">
+                    <CollectionView.Header>
+                        <Grid Padding="12,8" BackgroundColor="{StaticResource HeaderBackgroundColor}" ColumnDefinitions="2*,2*,1*">
+                            <Label Text="Subject" FontAttributes="Bold" TextColor="{StaticResource AccentColor}" Grid.Column="0"/>
+                            <Label Text="Grade" FontAttributes="Bold" TextColor="{StaticResource AccentColor}" Grid.Column="1"/>
+                        </Grid>
+                    </CollectionView.Header>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10,6" ColumnDefinitions="2*,2*,1*" RowSpacing="0">
+                                <Label Text="{Binding Subject}" Grid.Column="0" FontSize="16" VerticalOptions="Center" TextColor="{StaticResource TextPrimaryColor}"/>
+                                <Label Text="{Binding Value}" Grid.Column="1" FontSize="16" VerticalOptions="Center" TextColor="{StaticResource TextSecondaryColor}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

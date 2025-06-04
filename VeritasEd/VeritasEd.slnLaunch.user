@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "VeritasEd\\VeritasEd.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "VeritasAPI\\VeritasAPI.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
