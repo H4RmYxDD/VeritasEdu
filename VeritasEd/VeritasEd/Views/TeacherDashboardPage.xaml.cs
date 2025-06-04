@@ -16,11 +16,17 @@ public partial class TeacherDashboardPage : ContentPage
         InitializeComponent();
         BindingContext = this;
         _user = user;
-        LoadStudents();
-        LoadGrades();
+        InitAsync();
         WelcomeLabel.Text = $"Welcome, {_user.Username} (Teacher)";
     }
-    private async void LoadStudents()
+
+    private async void InitAsync()
+    {
+        await LoadStudents();
+        await LoadGrades();
+    }
+
+    private async Task LoadStudents()
     {
         var apiStudents = await _apiService.GetStudentsAsync();
         _students = apiStudents.Select(apiStudent => new Models.User
@@ -32,15 +38,8 @@ public partial class TeacherDashboardPage : ContentPage
         }).ToList();
         StudentPicker.ItemsSource = _students;
     }
-    public class GradeDisplay
-    {
-        public int Id { get; set; }
-        public string Username { get; set; } = "";
-        public string Subject { get; set; } = "";
-        public string Value { get; set; } = "";
-    }
 
-    private async void LoadGrades()
+    private async Task LoadGrades()
     {
         var allGrades = await _apiService.GetAllGradesAsync();
         var gradeDisplays = allGrades.Select(g =>
@@ -49,6 +48,7 @@ public partial class TeacherDashboardPage : ContentPage
             return new GradeDisplay
             {
                 Id = g.Id,
+                UserId = g.UserId,
                 Username = student?.Username ?? g.UserId.ToString(),
                 Subject = g.Subject,
                 Value = g.Value
@@ -56,6 +56,17 @@ public partial class TeacherDashboardPage : ContentPage
         }).ToList();
         GradesCollectionView.ItemsSource = gradeDisplays;
     }
+
+    public class GradeDisplay
+    {
+        public int Id { get; set; }
+        public int UserId { get; set; } 
+        public string Username { get; set; } = "";
+        public string Subject { get; set; } = "";
+        public string Value { get; set; } = "";
+    }
+
+
 
     private async void OnAddGradeClicked(object sender, EventArgs e)
     {
@@ -130,7 +141,7 @@ public partial class TeacherDashboardPage : ContentPage
     {
         if (sender is Button button && button.CommandParameter is GradeDisplay gradeDisplay)
         {
-            StudentPicker.SelectedItem = _students.FirstOrDefault(s => s.Username == gradeDisplay.Username);
+            StudentPicker.SelectedItem = _students.FirstOrDefault(s => s.Id == gradeDisplay.Id);
             SubjectEntry.Text = gradeDisplay.Subject;
             GradeValueEntry.Text = gradeDisplay.Value;
 
