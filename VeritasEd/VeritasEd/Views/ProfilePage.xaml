@@ -2,22 +2,61 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VeritasEd.Views.ProfilePage"
              Title="Profile"
-             BackgroundColor="{StaticResource BackgroundColor}">
-    <VerticalStackLayout Padding="24,36" Spacing="24">
-        <Frame BackgroundColor="{StaticResource CardColor}" CornerRadius="14" Padding="20" HasShadow="True">
-            <VerticalStackLayout Spacing="14">
-                <Label Text="Profile" FontAttributes="Bold" FontSize="24" TextColor="{StaticResource AccentColor}" HorizontalOptions="Center"/>
-                <Label x:Name="UsernameLabel" FontSize="18" TextColor="{StaticResource TextPrimaryColor}" />
-                <Label x:Name="RoleLabel" FontSize="16" TextColor="{StaticResource TextSecondaryColor}" />
-                <Button Text="Logout"
-                        Clicked="OnLogoutClicked"
-                        BackgroundColor="{StaticResource ButtonColor}"
-                        TextColor="{StaticResource ButtonTextColor}"
-                        FontAttributes="Bold"
-                        CornerRadius="8"
-                        HeightRequest="44"
-                        Margin="0,20,0,0"/>
-            </VerticalStackLayout>
-        </Frame>
-    </VerticalStackLayout>
+             BackgroundColor="{DynamicResource BackgroundColor}">
+    <ScrollView>
+        <VerticalStackLayout Padding="24,60" Spacing="32">
+            <Frame BackgroundColor="{DynamicResource PrimaryColor}" CornerRadius="16" Padding="18" HasShadow="True">
+                <Label Text="My Profile"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       TextColor="{DynamicResource TextPrimaryColor}"
+                       HorizontalOptions="Center" />
+            </Frame>
+            <Frame BackgroundColor="{DynamicResource CardColor}" CornerRadius="14" Padding="24" HasShadow="True">
+                <VerticalStackLayout Spacing="18" HorizontalOptions="Center">
+                    <!-- Profile Picture -->
+                    <Image Source="{Binding ProfileImageUrl}"
+                           WidthRequest="100"
+                           HeightRequest="100"
+                           Aspect="AspectFill"
+                           BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                           Margin="0,0,0,10"/>
+                    <Button Text="Change Picture"
+                            Clicked="OnChangePictureClicked"
+                            BackgroundColor="{DynamicResource ButtonColor}"
+                            TextColor="{DynamicResource ButtonTextColor}"
+                            FontSize="14"
+                            HeightRequest="32"
+                            WidthRequest="140"
+                            CornerRadius="16"
+                            HorizontalOptions="Center"/>
+                    <Entry x:Name="UsernameEntry"
+                           Text="{Binding Username}"
+                           Placeholder="Username"
+                           FontSize="20"
+                           TextColor="{DynamicResource TextPrimaryColor}" />
+                    <Entry x:Name="RoleEntry"
+                           Text="{Binding Role}"
+                           Placeholder="Role"
+                           FontSize="18"
+                           TextColor="{DynamicResource AccentColor}" 
+                           IsReadOnly="True"/>
+                    <Button Text="Save Changes"
+                            Clicked="OnSaveChangesClicked"
+                            BackgroundColor="{DynamicResource ButtonColor}"
+                            TextColor="{DynamicResource ButtonTextColor}"
+                            FontAttributes="Bold"
+                            CornerRadius="8"
+                            HeightRequest="44"/>
+                </VerticalStackLayout>
+            </Frame>
+            <Button Text="Logout"
+                    Clicked="OnLogoutClicked"
+                    BackgroundColor="{DynamicResource ButtonColor}"
+                    TextColor="{DynamicResource ButtonTextColor}"
+                    FontAttributes="Bold"
+                    CornerRadius="8"
+                    HeightRequest="44"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
