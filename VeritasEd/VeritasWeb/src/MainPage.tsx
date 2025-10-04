@@ -43,6 +43,7 @@ function MainPage() {
     }
   };
 
+  // register handler
   const register = async () => {
     setMessage(null);
     setLoading(true);
